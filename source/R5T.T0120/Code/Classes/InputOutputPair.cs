@@ -8,13 +8,8 @@ namespace R5T.T0120
         #region Static
 
         /// <summary>
-        /// Convenient conversion to input type to allow:
-        /// <code>
-        /// InputOutputPair expected = GetExpected();
-        /// var actual = TestObject.TestMethod(expected);
-        /// </code>
+        /// <inheritdoc cref="Documentation.ConvenientConversionToInputType"/>
         /// </summary>
-        /// <param name="pair"></param>
         public static implicit operator TInput(InputOutputPair<TInput, TOutput> pair)
         {
             return pair.Input;

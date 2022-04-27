@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -15,16 +14,37 @@ namespace System
     {
         public static void AreEqual<TInput, TOutput>(this IAssertion _,
             InputOutputPair<TInput, TOutput> expectedValue,
-            TOutput actualValue)
+            TOutput encounteredValue)
         {
-            Assert.AreEqual(expectedValue.Output, actualValue);
+            Assert.AreEqual(expectedValue.Output, encounteredValue);
         }
 
         public static void AreEqual<TInput, TOutput>(this IAssertion _,
             IEnumerable<InputOutputPair<TInput, TOutput>> expectedValues,
-            IEnumerable<TOutput> actualValues)
+            IEnumerable<TOutput> encounteredValues)
         {
-            var pairs = expectedValues.ZipWithEqualLengthRequirement(actualValues);
+            var pairs = expectedValues.ZipWithEqualLengthRequirement(encounteredValues);
+
+            foreach (var pair in pairs)
+            {
+                _.AreEqual(pair.Item1, pair.Item2);
+            }
+        }
+
+        public static void AreEqual<TInput, TOutput>(this IAssertion _,
+            Expectation<TInput, TOutput> expectation,
+            TOutput encounteredValue)
+        {
+            var areEqual = expectation.Verify(encounteredValue);
+
+            Assert.IsTrue(areEqual);
+        }
+
+        public static void AreEqual<TInput, TOutput>(this IAssertion _,
+            IEnumerable<Expectation<TInput, TOutput>> expectations,
+            IEnumerable<TOutput> encounteredValues)
+        {
+            var pairs = expectations.ZipWithEqualLengthRequirement(encounteredValues);
 
             foreach (var pair in pairs)
             {
