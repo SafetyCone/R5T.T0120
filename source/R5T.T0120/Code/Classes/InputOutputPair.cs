@@ -28,4 +28,21 @@ namespace R5T.T0120
             return representation;
         }
     }
+
+
+    public static class InputOutputPair
+    {
+        public static InputOutputPair<TInput, TOutput> From<TInput, TOutput>(
+            TInput input,
+            TOutput output)
+        {
+            var pair = new InputOutputPair<TInput, TOutput>
+            {
+                Input = input,
+                Output = output,
+            };
+
+            return pair;
+        }
+    }
 }
