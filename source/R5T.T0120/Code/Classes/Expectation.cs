@@ -1,5 +1,7 @@
 ﻿using System;
-using System.Additions;
+
+using R5T.F0000.T000;
+using R5T.T0142;
 
 
 namespace R5T.T0120
@@ -8,6 +10,7 @@ namespace R5T.T0120
     /// Represents an expectation tying together an input, an expected output, and the means to verify encounted output instances against the expected output instance.
     /// An expectation provides all the information required to verify an operation transforming a <typeparamref name="TInput"/> into a <typeparamref name="TOutput"/>.
     /// </summary>
+    [DataTypeMarker]
     public class Expectation<TInput, TOutput>
     {
         #region Static
@@ -20,7 +23,7 @@ namespace R5T.T0120
             return pair.Input;
         }
 
-        // No implicit converstion to output to avoid trouble when TInput is the same as TOutput, and an expectation is given to a method requring TOutput.
+        /// <inheritdoc cref="Documentation.NoImplicitConversionToOutputType"/>
 
         #endregion
 
@@ -28,5 +31,12 @@ namespace R5T.T0120
         public TInput Input { get; set; }
         public TOutput Output { get; set; }
         public IEqualityComparer<TOutput> OutputEqualityComparer { get; set; }
+
+
+        public override string ToString()
+        {
+            var representation = $"'{this.Output}' expected from '{this.Input}'";
+            return representation;
+        }
     }
 }

@@ -1,8 +1,11 @@
 using System;
 
+using R5T.T0142;
+
 
 namespace R5T.T0120
 {
+    [DataTypeMarker]
     public class InputOutputPair<TInput, TOutput>
     {
         #region Static
@@ -15,6 +18,8 @@ namespace R5T.T0120
             return pair.Input;
         }
 
+        /// <inheritdoc cref="Documentation.NoImplicitConversionToOutputType"/>
+
         #endregion
 
 
@@ -24,7 +29,7 @@ namespace R5T.T0120
 
         public override string ToString()
         {
-            var representation = $"{this.Output}: {this.Input}";
+            var representation = $"'{this.Output}' from '{this.Input}'";
             return representation;
         }
     }
