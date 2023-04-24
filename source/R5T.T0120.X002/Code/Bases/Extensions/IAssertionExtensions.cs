@@ -12,7 +12,7 @@ namespace System
 {
     public static class IAssertionExtensions
     {
-        [Obsolete("Use R5T.F01010")]
+        [Obsolete("Use R5T.F0101")]
         public static void AreEqual<TInput, TOutput>(this IAssertion _,
             InputOutputPair<TInput, TOutput> expectedValue,
             TOutput encounteredValue)
@@ -20,7 +20,7 @@ namespace System
             Assert.AreEqual(expectedValue.Output, encounteredValue);
         }
 
-        [Obsolete("Use R5T.F01010")]
+        [Obsolete("Use R5T.F0101")]
         public static void AreEqual<TInput, TOutput>(this IAssertion _,
             IEnumerable<InputOutputPair<TInput, TOutput>> expectedValues,
             IEnumerable<TOutput> encounteredValues)
@@ -33,7 +33,7 @@ namespace System
             }
         }
 
-        [Obsolete("Use R5T.F01010")]
+        [Obsolete("Use R5T.F0101")]
         public static void AreEqual<TInput, TOutput>(this IAssertion _,
             Expectation<TInput, TOutput> expectation,
             TOutput encounteredValue)
@@ -43,7 +43,7 @@ namespace System
             Assert.IsTrue(areEqual);
         }
 
-        [Obsolete("Use R5T.F01010")]
+        [Obsolete("Use R5T.F0101")]
         public static void AreEqual<TInput, TOutput>(this IAssertion _,
             IEnumerable<Expectation<TInput, TOutput>> expectations,
             IEnumerable<TOutput> encounteredValues)

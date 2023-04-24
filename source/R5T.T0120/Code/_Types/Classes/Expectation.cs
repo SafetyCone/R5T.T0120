@@ -6,12 +6,9 @@ using R5T.T0142;
 
 namespace R5T.T0120
 {
-    /// <summary>
-    /// Represents an expectation tying together an input, an expected output, and the means to verify encounted output instances against the expected output instance.
-    /// An expectation provides all the information required to verify an operation transforming a <typeparamref name="TInput"/> into a <typeparamref name="TOutput"/>.
-    /// </summary>
-    [DataTypeMarker]
-    public class Expectation<TInput, TOutput>
+    /// <inheritdoc cref="IExpectation{TInput, TOutput}"/>
+    [UtilityTypeMarker]
+    public class Expectation<TInput, TOutput> : IExpectation<TInput, TOutput>
     {
         #region Static
 
@@ -26,6 +23,12 @@ namespace R5T.T0120
         /// <inheritdoc cref="Documentation.NoImplicitConversionToOutputType"/>
 
         #endregion
+
+
+        public Expectation()
+        {
+        }
+
 
 
         public TInput Input { get; set; }

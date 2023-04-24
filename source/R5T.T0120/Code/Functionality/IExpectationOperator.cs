@@ -54,7 +54,7 @@ namespace R5T.T0120
         }
 
         public bool Verify<TInput, TOutput>(
-            Expectation<TInput, TOutput> expectation,
+            IExpectation<TInput, TOutput> expectation,
             TOutput output)
         {
             var areEqual = expectation.OutputEqualityComparer.Equals(output, expectation.Output);
@@ -65,7 +65,7 @@ namespace R5T.T0120
         /// Either the output is verified, or an exception is thrown.
         /// </summary>
         public void Verify_OrThrow<TInput, TOutput>(
-            Expectation<TInput, TOutput> expectation,
+            IExpectation<TInput, TOutput> expectation,
             TOutput output)
         {
             var verified = this.Verify(expectation, output);
