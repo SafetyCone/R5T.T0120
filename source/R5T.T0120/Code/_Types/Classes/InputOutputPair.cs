@@ -5,6 +5,9 @@ using R5T.T0142;
 
 namespace R5T.T0120
 {
+    /// <summary>
+    /// OBSOLETE - See R5T.L0087.T000.
+    /// </summary>
     [DataTypeMarker]
     public class InputOutputPair<TInput, TOutput>
     {

@@ -6,6 +6,9 @@ using R5T.T0132;
 
 namespace R5T.T0120
 {
+    /// <summary>
+    /// OBSOLETE - See R5T.L0087.F000.
+    /// </summary>
 	[FunctionalityMarker]
 	public partial interface IExpectationOperator : IFunctionalityMarker
 	{

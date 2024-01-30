@@ -10,6 +10,9 @@ using R5T.T0120;
 
 namespace System
 {
+    /// <summary>
+    /// OBSOLETE - See R5T.F0101.
+    /// </summary>
     public static class IAssertionExtensions
     {
         [Obsolete("Use R5T.F0101")]

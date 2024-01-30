@@ -5,6 +5,10 @@ using R5T.T0120;
 
 namespace System
 {
+    /// <summary>
+    /// OBSOLETE - See R5T.L0087.F000.
+    /// Also, no need for extension methods anymore now that we have instances.
+    /// </summary>
     public static class IExpectationExtensions
     {
         public static bool Verify<TInput, TOutput>(this IExpectation<TInput, TOutput> expectation,

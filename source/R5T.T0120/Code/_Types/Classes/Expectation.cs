@@ -6,7 +6,10 @@ using R5T.T0142;
 
 namespace R5T.T0120
 {
-    /// <inheritdoc cref="IExpectation{TInput, TOutput}"/>
+    /// <summary>
+    /// <para>OBSOLETE - See R5T.L0087.T000.</para>
+    /// <inheritdoc cref="IExpectation{TInput, TOutput}" path="/summary"/>
+    /// </summary>
     [UtilityTypeMarker]
     public class Expectation<TInput, TOutput> : IExpectation<TInput, TOutput>
     {
@@ -23,12 +26,6 @@ namespace R5T.T0120
         /// <inheritdoc cref="Documentation.NoImplicitConversionToOutputType"/>
 
         #endregion
-
-
-        public Expectation()
-        {
-        }
-
 
 
         public TInput Input { get; set; }
